@@ -272,52 +272,42 @@ html {
 .section h1 {
   z-index: 1;
   padding: 10px 20px;
-  margin-bottom: 10%; 
+  margin-bottom: 5%; 
 }
 
 .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between; /* Spread items evenly along the main axis */
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -10px; /* Add negative margin to offset the spacing between cards */
 }
 
 .card3 {
-    display: inline-block; /* Set images to display inline-block */
-    vertical-align: top; /* Align the images to the top within their containers */
-    margin: 0 10px; /* Add space between images if needed */
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally within each card */
+    text-align: center; /* Center the text within each card */
+    margin: 0 50px; /* Add space between cards if needed */
+    flex: 1; /* Allow cards to grow and occupy available space equally */
+}
+
+.card3 img {
+    max-width: 200px; /* Adjust the maximum width to make the images bigger */
+    margin-bottom: 20px; /* Increase spacing between image and text */
+}
+
+.card3 h4 {
+    margin-top: 10px; /* Adjust the margin to control spacing between image and description */
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.middle-card {
+    flex: 2; /* Make the middle card twice as wide as the others */
 }
 
 
-.card4 img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
-.github {
-  width: 200px; /* Set the desired width */
-  height: auto; /* Automatically adjust height to maintain aspect ratio */
-  margin-left: 10px;
-}
 
-/* Adjust the size of the Teams image */
-.teams {
-  width: 500px; /* Set the desired width */
-  height: auto; /* Automatically adjust height to maintain aspect ratio */
-}
 
-/* Adjust the size of the Discord image */
-.discord {
-  width: 250px; /* Set the desired width */
-  height: auto; /* Automatically adjust height to maintain aspect ratio */
-  margin-left: 10px;
-}
 
-.card4 {
-  text-align: center; /* Center the text within each card */
-}
-
-.card4 h4 {
-  margin-top: 10px; /* Adjust the margin to control spacing between image and description */
-  font-size: 14px; /* Adjust the font size as needed */
-}
