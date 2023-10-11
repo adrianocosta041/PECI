@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
 :root{
-    --main: #27374D;
+    --main:  #d0d4dc;
     --circle-size: 10%;
+    #526d824d
 }
 *{
     
@@ -22,7 +23,7 @@
     left:0;
     width: 100%;
     padding: 1.3rem 10%;
-    background-color: rgb(82, 109, 130, 0.3); 
+    background-color:rgba(74, 74, 74, 0.2  ) ; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,14 +32,14 @@
 
 .logo{
     font-size: 1.5rem;
-    color:white;
+    color:rgb(0, 0, 0);
     text-decoration: none;
     font-weight: 500;
     margin-left: -10%;
 }
 
 .navbar a{
-    color: white;   
+    color: rgb(0, 0, 0);   
     font-size: 1.15rem;
     text-decoration: none;
     font-weight: 500;
@@ -47,7 +48,7 @@
 
 .icons{
     font-size: 2.8rem;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     display: none;
 }
@@ -88,7 +89,7 @@
     position: relative;
     height: 30vw;
     width: 30vw;
-    background-color: rgba(8, 15, 15, 0.1);
+    background-color: #b4a2a21a;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -102,7 +103,9 @@
     margin-top: 10%; /* Adjust as needed for spacing */
     max-height: 70%; /* Set a maximum height to prevent overflow */
     overflow: hidden; /* Hide overflow text */
+    font-size: 20px;
   }
+
   
   .circle-container {
     display: grid;
@@ -130,9 +133,10 @@ section {
 }
 
 h1 {
-  color: white;
+  color: rgb(30, 34, 40);
   text-shadow: 1px 1px 4px black;
   margin: 0;
+  font-size: 60px;
 }
 
 .title{
@@ -142,13 +146,12 @@ h1 {
 
 h4{
     text-indent: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .one{
     background-color:var(--main);
 }
-
 .two{
     background-color: var(--main);
 }
@@ -197,7 +200,7 @@ h4{
  }
  
  .card:hover {
-  box-shadow: 0px 0px 30px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
  }
 
 .card img {
@@ -225,21 +228,20 @@ html {
 }
 
 .problem-container h1 {
-  font-size: 40px; /* Adjust the font size as needed */
   margin-bottom: 30%; /* Add more margin to create a gap */
 }
 
 .cardp {
-  width: 450px;
-  height: 254px;
+  width: 550px;
+  height: 300px;
   border-radius: 30px;
-  background: var(--main);
-  box-shadow: 15px 15px 30px #314869, -15px -15px 30px #314869;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 15px 15px 30px #2b2c2f, -15px -15px 30px #2b2c2f;
   display: flex; /* Center the content vertically and horizontally */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 20px;
 }
 
@@ -299,14 +301,13 @@ html {
 
 .card3 h4 {
     margin-top: 10px; /* Adjust the margin to control spacing between image and description */
-    font-size: 14px; /* Adjust the font size as needed */
+    font-size: 40px; /* Adjust the font size as needed */
+
 }
 
 .middle-card {
     flex: 2; /* Make the middle card twice as wide as the others */
 }
-
-
 
 
 
