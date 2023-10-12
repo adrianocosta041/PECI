@@ -2,7 +2,6 @@
 :root{
     --main:  #d0d4dc;
     --circle-size: 10%;
-    #526d824d
 }
 *{
     
@@ -40,10 +39,10 @@
 
 .navbar a{
     color: rgb(0, 0, 0);   
-    font-size: 1.15rem;
+    font-size: 1rem;
     text-decoration: none;
-    font-weight: 500;
-    margin-left: 2.5rem;
+    font-weight: 300;
+    margin-left: 2rem;
 }
 
 .icons{
@@ -301,13 +300,47 @@ html {
 
 .card3 h4 {
     margin-top: 10px; /* Adjust the margin to control spacing between image and description */
-    font-size: 40px; /* Adjust the font size as needed */
+    font-size: 20px; /* Adjust the font size as needed */
 
 }
 
 .middle-card {
     flex: 2; /* Make the middle card twice as wide as the others */
 }
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.members {
+  width: 100%; /* Take up the full width */
+  text-align: left; /* Align text within members div to the left */
+  justify-content: flex-start; /* Align the members div to the left */
+  margin-left: -300%; /* Adjust this value as needed to move the members div further to the left */
+}
+
+.orientadores {
+  width: 100%; /* Take up the full width */
+  text-align: right; /* Align text within orientadores div to the right */
+  justify-content: flex-start;
+  margin-right: -300%;
+  margin-top: -85%;
+}
+
+.members-list h4,
+.orientadores-list h4 {
+  margin: 10px 0; /* Adjust the margin value as needed to increase space between h4 elements */
+}
+
+
+
+
+
 
 
 
