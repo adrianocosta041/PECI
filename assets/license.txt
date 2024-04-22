@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chicken Gun- Chicken
+* source:	https://sketchfab.com/3d-models/chicken-gun-chicken-20c4c066ea2c4348ba185fb4e82d90c7
+* author:	makskolot7 (https://sketchfab.com/makskolot7)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chicken Gun- Chicken" (https://sketchfab.com/3d-models/chicken-gun-chicken-20c4c066ea2c4348ba185fb4e82d90c7) by makskolot7 (https://sketchfab.com/makskolot7) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
