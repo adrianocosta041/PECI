@@ -767,11 +767,7 @@ function animate(timestamp) {
         }
         case 'backward': {
           currentLane--;
-          points--;
-          if (currentColumn === 8 && (lanes[currentLane].type === 'car' || lanes[currentLane].type === 'truck')) {
-            // The chicken crossed a crosswalk, so award double points
-            points -= 1;
-          }
+          points -= 2;
 
           counterDOM.innerHTML = points;
           break;
