@@ -768,6 +768,9 @@ function animate(timestamp) {
         case 'backward': {
           currentLane--;
           points -= 2;
+          if (points < 0) {
+            points = 0;
+          }
 
           counterDOM.innerHTML = points;
           break;
