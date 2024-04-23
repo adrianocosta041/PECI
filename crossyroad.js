@@ -18,6 +18,14 @@ camera.position.y = initialCameraPositionY;
 camera.position.x = initialCameraPositionX;
 camera.position.z = distance;
 
+const camera_1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+camera_1.position.z = 20;
+camera_1.position.y = 15;
+camera_1.position.x = 0;
+
+camera_1.rotation.x = Math.PI / 2;
+
+
 const zoom = 2;
 
 const chickenSize = 15;
@@ -49,7 +57,7 @@ const truckFrontTexture = new Texture(30, 30, [{ x: 15, y: 0, w: 10, h: 30 }]);
 const truckRightSideTexture = new Texture(25, 30, [{ x: 0, y: 15, w: 10, h: 10 }]);
 const truckLeftSideTexture = new Texture(25, 30, [{ x: 0, y: 5, w: 10, h: 10 }]);
 
-
+let isOrthographicCameraActive = true;
 
 const generateLanes = () => [-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => {
   const lane = new Lane(index);
@@ -429,6 +437,7 @@ function Chicken() {
   feet2.position.set(3 * zoom, 0 * zoom, 3 * zoom);
   chicken.add(feet2);
 
+  chicken.add(camera_1);
 
   return chicken;
 }
@@ -681,6 +690,14 @@ function move(direction) {
   moves.push(direction);
 }
 
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'r' || event.key === 'R') {
+    isOrthographicCameraActive = !isOrthographicCameraActive;
+  }
+  console.log("MUDA A CAMERA");
+});
+
+
 
 function animate(timestamp) {
   requestAnimationFrame(animate);
@@ -729,7 +746,6 @@ function animate(timestamp) {
         camera.position.y = initialCameraPositionY + positionY;
         dirLight.position.y = initialDirLightPositionY + positionY;
         chicken.position.y = positionY;
-
         chicken.position.z = jumpDeltaDistance;
         break;
       }
@@ -801,6 +817,7 @@ function animate(timestamp) {
       if (chickenMaxX > carMinX && chickenMinX < carMaxX) {
         endDOM.style.visibility = 'visible';
         gamelost = true;
+        isOrthographicCameraActive = true;
         console.log('hit');
       }
 
@@ -808,7 +825,11 @@ function animate(timestamp) {
 
   }
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.render(scene, camera);
+  if (gamelost) {
+    camera.position.z += 0.01;
+  }
+  const activeCamera = isOrthographicCameraActive ? camera : camera_1;
+  renderer.render(scene, activeCamera);
 }
 
 requestAnimationFrame(animate);
