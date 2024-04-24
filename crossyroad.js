@@ -1,6 +1,7 @@
 import * as THREE from "https://threejs.org/build/three.module.js";
 
 const counterDOM = document.getElementById('counter');
+const highscoreDOM = document.getElementById('highscore');
 const endDOM = document.getElementById('end');
 
 const scene = new THREE.Scene();
@@ -41,6 +42,7 @@ let currentLane;
 let currentColumn;
 
 let points = 0;
+let highscore = 0;
 
 let gamelost = false;
 let previousTimestamp;
@@ -181,7 +183,7 @@ function Car() {
   main.position.z = 12 * zoom;
   main.castShadow = true;
   main.receiveShadow = true;
-  car.add(main)
+  car.add(main);
 
   const cabinColors = [0x03defe, 0xcccccc, 0x000000];
   const cabinColour = cabinColors[Math.floor(Math.random() * cabinColors.length)];
@@ -625,6 +627,14 @@ function Lane(index) {
 }
 document.querySelector("#retry").addEventListener("click", () => {
   lanes.forEach(lane => scene.remove(lane.mesh));
+  gamelost = false;
+  if (points > highscore) {
+    highscore = points;
+  }
+  points = 0; // Reset points
+  counterDOM.innerHTML = points;
+  console.log("RESET POINTS");
+  highscoreDOM.innerHTML = highscore;
   initaliseValues();
   endDOM.style.visibility = 'hidden';
 });
@@ -777,6 +787,7 @@ function animate(timestamp) {
           if (currentColumn === 8 && (lanes[currentLane].type === 'car' || lanes[currentLane].type === 'truck')) {
             // The chicken crossed a crosswalk, so award double points
             points += 1;
+
           }
           counterDOM.innerHTML = points;
           break;

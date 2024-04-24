@@ -21,6 +21,32 @@ button {
     left: 20px;
 }
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    dawq 50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#highscore {
+    position: absolute;
+    font-size: 1em;
+    top: 60px;
+    left: 20px;
+    background: linear-gradient(200deg, red, orange, blue, indigo, violet);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
 #end {
     position: absolute;
     min-width: 100%;
