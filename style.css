@@ -40,7 +40,7 @@ button {
     font-size: 1em;
     top: 60px;
     left: 20px;
-    background: linear-gradient(200deg, red, orange, blue, indigo, violet);
+    background: linear-gradient(200deg, red, blue, indigo, violet);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

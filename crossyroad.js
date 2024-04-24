@@ -704,7 +704,12 @@ window.addEventListener('keydown', function (event) {
   if (event.key === 'r' || event.key === 'R') {
     isOrthographicCameraActive = !isOrthographicCameraActive;
   }
-  console.log("MUDA A CAMERA");
+  if (isOrthographicCameraActive == false) {
+    counterDOM.style.color = "black";
+  }
+  else {
+    counterDOM.style.color = "white";
+  }
 });
 
 
