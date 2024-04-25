@@ -2,9 +2,13 @@ import * as THREE from "https://threejs.org/build/three.module.js";
 
 const counterDOM = document.getElementById('counter');
 const highscoreDOM = document.getElementById('highscore');
+const Score = document.getElementsByClassName('Score');
+const Record = document.getElementsByClassName('Record');
+console.log(Record);
 const endDOM = document.getElementById('end');
 
 const scene = new THREE.Scene();
+
 
 const distance = 500;
 const camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 20000);
@@ -705,10 +709,14 @@ window.addEventListener('keydown', function (event) {
     isOrthographicCameraActive = !isOrthographicCameraActive;
   }
   if (isOrthographicCameraActive == false) {
-    counterDOM.style.color = "black";
+    document.querySelector('.Score p').style.color = "black";
+    document.querySelector('.Record p').style.color = "black";
+    scene.background = new THREE.Color(0x1b8bb9);
   }
   else {
-    counterDOM.style.color = "white";
+    document.querySelector('.Score p').style.color = "white";
+    document.querySelector('.Record p').style.color = "white";
+    scene.background = new THREE.Color(0xffffff);
   }
 });
 
