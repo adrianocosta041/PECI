@@ -14,11 +14,43 @@ button {
     box-shadow: 3px 5px 0px 0px rgba(0, 0, 0, 0.75);
 }
 
-#counter {
+
+.Score {
     position: absolute;
-    color: rgb(255, 255, 255);
     top: 20px;
     left: 20px;
+}
+
+.Score p {
+    display: inline;
+}
+
+.Score #counter {
+    position: relative;
+    top: 0;
+    left: 5px;
+}
+
+.Record {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+
+.Record p {
+    display: inline;
+}
+
+.Record #highscore {
+    position: relative;
+    top: 0;
+    left: 5px;
+    font-size: 1em;
+    background: linear-gradient(200deg, red, rgb(229, 229, 237), rgb(178, 172, 182), rgb(223, 17, 17));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
 }
 
 @keyframes gradient {
@@ -26,25 +58,13 @@ button {
         background-position: 0% 50%;
     }
 
-    dawq 50% {
+    50% {
         background-position: 100% 50%;
     }
 
     100% {
         background-position: 0% 50%;
     }
-}
-
-#highscore {
-    position: absolute;
-    font-size: 1em;
-    top: 60px;
-    left: 20px;
-    background: linear-gradient(200deg, red, blue, indigo, violet);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient 3s ease infinite;
 }
 
 #end {
@@ -80,6 +100,23 @@ button {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     margin-bottom: 20px;
+}
+
+.Camera {
+    width: 300px;
+    position: absolute;
+    bottom: 20%;
+    left: 44%;
+    align-items: first baseline;
+}
+
+.Camera p {
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
 }
 
 #controlls button {
