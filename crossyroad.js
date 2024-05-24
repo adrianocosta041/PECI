@@ -176,12 +176,14 @@ function Wheel() {
 
 function Car() {
   const car = new THREE.Group();
-  const carColors = [0x1dab03, 0xffbf00, 0xc1e7f7];
+  const carColors = [0x00ff66, 0xc1ff00, 0xffcc00, 0xff8736, 0xfd4e4e];
 
-  const color = carColors[Math.floor(Math.random() * vechicleColors.length)];
-
+  const color = carColors[Math.floor(Math.random() * carColors.length)];
+  //const length = randomInt(70, 90);
+  const carLengths = [50, 70, 80];
+  const length = carLengths[Math.floor(Math.random() * carLengths.length)];
   const main = new THREE.Mesh(
-    new THREE.BoxGeometry(70 * zoom, 30 * zoom, 15 * zoom),
+    new THREE.BoxGeometry(length * zoom, 30 * zoom, 18 * zoom),
     new THREE.MeshPhongMaterial({ color, flatShading: true })
   );
   main.position.z = 12 * zoom;
@@ -227,9 +229,10 @@ function Car() {
 
 function Truck() {
   const truck = new THREE.Group();
-  const truckColors = [0xab3503, 0x9318a3, 0x78fee];
-  const color = truckColors[Math.floor(Math.random() * vechicleColors.length)];
-
+  const truckColors = [0x49464c, 0x49606a, 0x668e97, 0xe4f0f3];
+  const color = truckColors[Math.floor(Math.random() * truckColors.length)];
+  const CargoColors = [0xb03636, 0x68905a, 0x5a6a86, 0x15557c];
+  const Cargocolor = CargoColors[Math.floor(Math.random() * CargoColors.length)];
 
   const base = new THREE.Mesh(
     new THREE.BoxGeometry(100 * zoom, 25 * zoom, 5 * zoom),
@@ -240,7 +243,7 @@ function Truck() {
 
   const cargo = new THREE.Mesh(
     new THREE.BoxGeometry(75 * zoom, 35 * zoom, 40 * zoom),
-    new THREE.MeshPhongMaterial({ color: 0xe1e1e1, flatShading: true })
+    new THREE.MeshPhongMaterial({ color: Cargocolor, flatShading: true })
   );
   cargo.position.x = 15 * zoom;
   cargo.position.z = 30 * zoom;
@@ -544,6 +547,34 @@ function Grass() {
 }
 
 
+const listener = new THREE.AudioListener();
+camera.add(listener);
+
+
+const audioLoader = new THREE.AudioLoader();
+
+
+const endSound = new THREE.Audio(listener);
+audioLoader.load('sounds/fail.mp3', function (buffer) {
+  endSound.setBuffer(buffer);
+  endSound.setLoop(false);
+  endSound.setVolume(0.5);
+});
+
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'm' || event.key === 'M') {
+    if (sound.isPlaying) {
+      sound.pause();
+      muteButton.textContent = 'Unmute';
+    } else {
+      sound.play();
+      muteButton.textContent = 'Mute';
+    }
+  }
+});
+
+
 function Lane(index) {
   this.index = index;
   this.type = index <= 0 ? 'field' : laneTypes[Math.floor(Math.random() * laneTypes.length)];
@@ -634,6 +665,8 @@ document.querySelector("#retry").addEventListener("click", () => {
   gamelost = false;
   if (points > highscore) {
     highscore = points;
+    console.log("New high score: " + highscore); // Log new high score
+    alert("New high score: " + highscore); // Show alert with new high score
   }
   points = 0; // Reset points
   counterDOM.innerHTML = points;
@@ -843,6 +876,7 @@ function animate(timestamp) {
         gamelost = true;
         isOrthographicCameraActive = true;
         console.log('hit');
+        endSound.play();
       }
 
     });
